@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from notes.views import index2
-from notes.views import index
+
 from notes_olha.views import hello
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('notes/', index),
-    path('hello_from_Olha/', hello),
     path('', include('notes.urls')),
     path('notes_sergey/', include('notes_sergey.urls')),
     path('notes_vlad/', include('notes_Vlad.urls')),
+    path('notes_olha/', include('notes_olha.urls')),
 ]
