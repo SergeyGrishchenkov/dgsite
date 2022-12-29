@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 
-from notes_sergey.views import index1
+from notes.views import index2
 
 urlpatterns = [
-    path('', index1, name="index"),
+    path('', index2, name="main_notes"),
 ]
