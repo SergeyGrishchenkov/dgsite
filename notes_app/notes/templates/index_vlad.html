@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Vlad</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_vlad.css' %}" />
+</head>
+<body>
+
+<h1>
+    <div style="height: 600px; width: 300px; border: 2px solid black;">
+        <h2>Блокнот с заметками</h2>
+        <form>
+            <input type="text" id="note-input" placeholder="Добавить заметку">
+            <button type="submit">Добавить</button>
+        </form>
+        <ul id="note-list">
+            <!-- Здесь будут отображаться добавленные пункты -->
+        </ul>
+    </div>
+</h1>
+
+</body>
+</html>
