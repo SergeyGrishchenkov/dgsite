@@ -6,6 +6,6 @@ from django.views.generic import TemplateView
 class NotesVlad(TemplateView):
     template_name = 'index_vlad.html'
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         ctx = {}
         return render(request, self.template_name, ctx)
