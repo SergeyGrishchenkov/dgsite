@@ -2,3 +2,8 @@ h2 {
   color: #ff0000;
   text-align: center;
 }
+
+body {
+  margin: 0;
+  background: #4ac1f7;
+}
