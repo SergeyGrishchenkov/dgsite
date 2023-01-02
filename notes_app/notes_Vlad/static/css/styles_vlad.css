@@ -1,9 +1,55 @@
-h2 {
-  color: #ff0000;
-  text-align: center;
+.notebook {
+    width: 400px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
 }
 
-body {
-  margin: 0;
-  background: #4ac1f7;
+.notebook-title {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
+
+.note-form {
+    padding: 10px;
+}
+
+.note-form input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.note-form input[type="submit"] {
+    background-color: rgba(74, 135, 247, 0.73);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note {
+    border-bottom: 1px solid #f4f4f4;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.note:last-child {
+    border-bottom: none;
+}
+
+.note {
+    margin: 5px 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+
+

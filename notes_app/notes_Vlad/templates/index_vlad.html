@@ -7,18 +7,19 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_vlad.css' %}">
 </head>
 <body>
-
-<div style="height: 300px; width: 300px; border: 2px solid black;">
-    <h2>Блокнот с заметками</h2>
-    <form action="/submit-form/">
-        <input type="text" id="note-input" placeholder="Добавить заметку">
-        <button type="submit">Добавить</button>
+<div class="notebook">
+    <div class="notebook-title">Блокнот</div>
+    <form class="note-form">
+        <input type="text" placeholder="Введите заметку...">
+        <input type="submit" value="Добавить">
     </form>
-    <ul id="note-list">
-        <!-- Здесь будут отображаться добавленные пункты -->
-    </ul>
+    <div class="notes">
+        <ol>
+            <li class="note">Также можно указать тип нумерации элементов списка с помощью атрибута type. Например, чтобы создать список с буквенной </li>
+            <li class="note">Существует множество типов нумерации, которые можно использовать</li>
+        </ol>
+
+    </div>
 </div>
-
-
 </body>
 </html>
