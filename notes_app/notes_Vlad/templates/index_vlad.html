@@ -9,15 +9,19 @@
 <body>
 <div class="notebook">
     <div class="notebook-title">Блокнот</div>
-    <form class="note-form">
-        <input type="text" placeholder="Введите заметку...">
-        <input type="submit" value="Добавить">
+    <form method="post" class="note-form" action="#">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
     </form>
     <div class="notes">
-        <ol>
-            <li class="note">Также можно указать тип нумерации элементов списка с помощью атрибута type. Например, чтобы создать список с буквенной </li>
-            <li class="note">Существует множество типов нумерации, которые можно использовать</li>
-        </ol>
+        {% if notes %}
+            <ul>
+                {% for note in notes %}
+                <li class='note_list'>{{ note.content }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
     </div>
 </div>

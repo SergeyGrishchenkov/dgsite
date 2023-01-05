@@ -34,7 +34,7 @@
     font-size: 16px;
 }
 
-.note {
+.note_list {
     border-bottom: 1px solid #f4f4f4;
     padding: 10px;
     font-size: 16px;
@@ -49,6 +49,22 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     border-bottom: 1px solid #f4f4f4;
+}
+
+.notes ul {
+    list-style-type: none; /* убирает маркеры списка */
+    margin: 0; /* убирает отступы сверху и снизу */
+    padding: 0; /* убирает отступы справа и слева */
+}
+
+.notes li.note_list {
+    width: 400px; /* ширина поля */
+    white-space: normal; /* позволяет переносить строки */
+    word-wrap: break-word; /* переносит слова, если они не помещаются */
+    margin: 10px 0; /* добавляет отступ сверху и снизу */
+    padding: 10px; /* добавляет отступы справа и слева */
+    border: 1px solid #ccc; /* добавляет рамку вокруг элемента */
+    box-sizing: border-box; /* учитывает отступы и рамку в расчете ширины элемента */
 }
 
 
