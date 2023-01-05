@@ -16,11 +16,11 @@
     </form>
     <div class="notes">
         {% if notes %}
-            <ul>
-                {% for note in notes %}
-                <li class='note_list'>{{ note.content }}</li>
-                {% endfor %}
-            </ul>
+        <ul>
+            {% for note in notes %}
+            <li class='note_list'>{{ note.content }}</li>
+            {% endfor %}
+        </ul>
         {% endif %}
 
     </div>

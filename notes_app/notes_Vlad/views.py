@@ -20,7 +20,7 @@ class NotesVlad(TemplateView):
         form = FormNote(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Заметка успешно сохранена!')
+            messages.success(request, 'Заметка успешно сохранена!')  # пока не отображается
             return HttpResponseRedirect(reverse('NotesVlad'))
         notes = NoteForm.objects.all()
         ctx = {'form': form, 'notes': notes}
