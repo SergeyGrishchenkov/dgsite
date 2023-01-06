@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Vlad</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_vlad.css' %}">
+</head>
+<body>
+<div class="notebook">
+    <div class="notebook-title">Блокнот</div>
+    <form method="post" class="note-form" action="#">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+    <div class="notes">
+        {% if notes %}
+        <ul>
+            {% for note in notes %}
+            <li class='note_list'>{{ note.content }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+</div>
+</body>
+</html>

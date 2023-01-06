@@ -1,0 +1,59 @@
+.notebook {
+    width: 400px;
+    border: 1px solid #4a87f7;
+    margin: 0 auto;
+}
+
+.notebook-title {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.note-form {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.note-form input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.note-form input[type="submit"] {
+    background-color: #4a87f7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note:last-child {
+    border-bottom: none;
+}
+
+.notes ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.notes li.note_list {
+    width: 350px;
+    font-size: 18px;
+    list-style-type: '👉';
+    padding-inline-start: 1ch;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 10px 20px;
+    padding: 10px;
+    border-bottom: 1px solid #4a87f7;
+}
