@@ -1,6 +1,6 @@
 .notebook {
     width: 400px;
-    border: 1px solid rgba(74, 135, 247, 0.73);
+    border: 1px solid #4a87f7;
     margin: 0 auto;
 }
 
@@ -9,15 +9,14 @@
     text-align: center;
     padding: 10px;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .note-form {
     padding: 10px;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 18px;
 }
-
 
 .note-form input[type="text"] {
     width: 100%;
@@ -29,7 +28,7 @@
 }
 
 .note-form input[type="submit"] {
-    background-color: rgba(74, 135, 247, 0.73);
+    background-color: #4a87f7;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -37,32 +36,24 @@
     font-size: 16px;
 }
 
-
 .note:last-child {
     border-bottom: none;
 }
 
-
 .notes ul {
-    list-style-type: none; /* убирает маркеры списка */
-    margin: 0; /* убирает отступы сверху и снизу */
-    padding: 10px; /* убирает отступы справа и слева */
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
 }
 
 .notes li.note_list {
-    width: 350px; /* ширина поля */
+    width: 350px;
     font-size: 18px;
     list-style-type: '👉';
     padding-inline-start: 1ch;
-    white-space: normal; /* позволяет переносить строки */
-    word-wrap: break-word; /* переносит слова, если они не помещаются */
-    margin: 10px 20px; /* добавляет отступ сверху и снизу */
-    padding: 10px; /* добавляет отступы справа и слева */
-    border-bottom: 1px solid rgba(74, 135, 247, 0.73);
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 10px 20px;
+    padding: 10px;
+    border-bottom: 1px solid #4a87f7;
 }
-
-
-
-
-
-
