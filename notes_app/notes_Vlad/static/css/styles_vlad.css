@@ -13,7 +13,7 @@
 }
 
 .note-form {
-    padding: 10px;
+    padding: 30px;
     font-weight: bold;
     font-size: 18px;
 }
@@ -21,19 +21,29 @@
 .note-form input[type="text"] {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #4a87f7;
     padding: 12px;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
-.note-form input[type="submit"] {
+.note-form input[type="submit"],
+.note-dell input[type="submit"] {
     background-color: #4a87f7;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 18px;
     border: none;
     cursor: pointer;
     font-size: 16px;
+}
+
+.note-form input[type="submit"] {
+    margin: 0 auto;
+    display: block;
+}
+
+.note-dell input[type="submit"] {
+    float: right;
 }
 
 .note:last-child {
@@ -49,11 +59,12 @@
 .notes li.note_list {
     width: 350px;
     font-size: 18px;
+    font-weight: bold;
     list-style-type: '👉';
     padding-inline-start: 1ch;
     white-space: normal;
     word-wrap: break-word;
-    margin: 10px 20px;
+    margin: 2px 20px;
     padding: 10px;
     border-bottom: 1px solid #4a87f7;
 }

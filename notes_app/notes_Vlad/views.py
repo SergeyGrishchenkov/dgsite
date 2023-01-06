@@ -1,11 +1,16 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render
 from .forms import FormNote
 from django.http import HttpResponseRedirect
 from .models import NoteForm
 from django.contrib import messages
 from django.urls import reverse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
+import tkinter as tk
+
+
+def delete_all(request):
+    NoteForm.objects.all().delete()
+    return HttpResponseRedirect(reverse('NotesVlad'))
 
 
 class NotesVlad(TemplateView):

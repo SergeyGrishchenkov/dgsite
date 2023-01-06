@@ -9,6 +9,11 @@
 <body>
 <div class="notebook">
     <div class="notebook-title">Блокнот</div>
+    <form action="{% url 'delete_all' %}" method="post" class="note-dell">
+        {% csrf_token %}
+        <input type="hidden" name="confirm" value="yes">
+        <input type="submit" value="Удалить все">
+    </form>
     <form method="post" class="note-form" action="#">
         {% csrf_token %}
         {{ form.as_p }}
