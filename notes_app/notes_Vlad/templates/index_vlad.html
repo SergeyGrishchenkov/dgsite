@@ -24,6 +24,11 @@
         <ul>
             {% for note in notes %}
             <li class='note_list'>{{ note.content }}</li>
+            <a href="{% url 'update_item' note.id %}"
+               onclick="return confirm('Вы уверены, что хотите изменить этот элемент?');">Изменить</a>
+            <a href="{% url 'delete_item' note.id %}"
+               onclick="return confirm('Вы уверены, что хотите удалить этот элемент?');">Удалить</a>
+
             {% endfor %}
         </ul>
         {% endif %}

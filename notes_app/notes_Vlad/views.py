@@ -5,11 +5,22 @@ from .models import NoteForm
 from django.contrib import messages
 from django.urls import reverse
 from django.shortcuts import render
-import tkinter as tk
 
 
 def delete_all(request):
     NoteForm.objects.all().delete()
+    return HttpResponseRedirect(reverse('NotesVlad'))
+
+
+def update_item(request, item_id):
+    item = NoteForm.objects.get(pk=item_id)
+    form = FormNote(request.POST)
+
+
+
+def delete_item(request, item_id):
+    item = NoteForm.objects.get(pk=item_id)
+    item.delete()
     return HttpResponseRedirect(reverse('NotesVlad'))
 
 
