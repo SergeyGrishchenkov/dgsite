@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.shortcuts import render
 
 
-def delete_all():
+def delete_all(request):
     NoteForm.objects.all().delete()
     return HttpResponseRedirect(reverse('NotesVlad'))
 
@@ -28,7 +28,7 @@ def update_item(request, item_id):
     return render(request, 'index_vlad.html', ctx)
 
 
-def delete_item(item_id):
+def delete_item(request, item_id):
     item = NoteForm.objects.get(pk=item_id)
     item.delete()
     return HttpResponseRedirect(reverse('NotesVlad'))
