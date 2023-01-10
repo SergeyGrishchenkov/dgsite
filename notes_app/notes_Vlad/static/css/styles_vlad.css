@@ -1,0 +1,75 @@
+.notebook {
+    width: 400px;
+    border: 1px solid #4a87f7;
+    margin: 0 auto;
+}
+
+.notebook-title {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.note-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.note-form input[type="text"] {
+    width: 280px;
+    box-sizing: border-box;
+    border: 1px solid #4a87f7;
+    padding: 9px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.note-form input[type="submit"],
+.note-dell input[type="submit"] {
+    background-color: #4a87f7;
+    color: white;
+    padding: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note-form input[type="submit"] {
+    padding: 10px;
+    margin: auto;
+
+}
+
+.note-dell input[type="submit"] {
+    float: right;
+}
+
+.notes {
+    display: flex;
+    align-items: center;
+
+}
+
+.note_list {
+    width: 320px;
+    list-style-type: '✎  ';
+    white-space: normal;
+    word-wrap: break-word;
+    flex: 3;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #4a87f7;
+}
+
+.notes a {
+    text-decoration: none;
+    color: white;
+    background-color: #4a87f7;
+    cursor: pointer;
+}
+
+
