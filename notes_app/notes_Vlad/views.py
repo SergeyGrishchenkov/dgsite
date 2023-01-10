@@ -5,33 +5,42 @@ from .models import NoteModel
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
+from django.views import View
 
 
-def delete_all(request):
-    NoteModel.objects.all().delete()
-    return HttpResponseRedirect(reverse('NotesVlad'))
+class DeleteAllView(View):
+    def get(self, request):
+        pass
+
+    def post(self, request):
+        NoteModel.objects.all().delete()
+        return HttpResponseRedirect(reverse('NotesVlad'))
 
 
-def update_item(request, item_id):
-    my_model = NoteModel.objects.get(pk=item_id)
-    if request.method == 'POST':
+class UpdateItemView(View):
+    def get(self, request, item_id):
+        my_model = NoteModel.objects.get(pk=item_id)
+        form = FormNote(instance=my_model)
+        notes = NoteModel.objects.all()
+        ctx = {'form': form, 'notes': notes}
+        return render(request, 'index_vlad.html', ctx)
+
+    def post(self, request, item_id):
+        my_model = NoteModel.objects.get(pk=item_id)
         form = FormNote(request.POST, instance=my_model)
         if form.is_valid():
             form.save()
             messages.success(request, 'Заметка успешно сохранена!')
             return HttpResponseRedirect(reverse('NotesVlad'))
-    else:
-        form = FormNote(instance=my_model)
-
-    notes = NoteModel.objects.all()
-    ctx = {'form': form, 'notes': notes}
-    return render(request, 'index_vlad.html', ctx)
+        else:
+            return self.get(request, item_id)
 
 
-def delete_item(request, item_id):
-    item = NoteModel.objects.get(pk=item_id)
-    item.delete()
-    return HttpResponseRedirect(reverse('NotesVlad'))
+class DeleteItemView(View):
+    def get(self, request, item_id):
+        item = NoteModel.objects.get(pk=item_id)
+        item.delete()
+        return HttpResponseRedirect(reverse('NotesVlad'))
 
 
 class NotesVlad(FormView):
