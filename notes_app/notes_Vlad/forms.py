@@ -1,8 +1,8 @@
 from django import forms
-from .models import NoteForm
+from .models import NoteModel
 
 
 class FormNote(forms.ModelForm):
     class Meta:
-        model = NoteForm
+        model = NoteModel
         fields = ['content']
