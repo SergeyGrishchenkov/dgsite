@@ -5,4 +5,4 @@ from .models import NoteModel
 class FormNote(forms.ModelForm):
     class Meta:
         model = NoteModel
-        fields = '__all__'
+        fields = ['category', 'reminder', 'content', 'text']

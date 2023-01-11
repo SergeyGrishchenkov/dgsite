@@ -6,6 +6,12 @@ from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
+
+
+class NotesListView(ListView):
+    model = NoteModel
+    paginate_by = 3
 
 
 class DeleteAllView(View):

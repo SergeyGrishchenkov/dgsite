@@ -1,5 +1,5 @@
 .notebook {
-    width: 400px;
+    width: 70%;
     border: 1px solid #4a87f7;
     margin: 0 auto;
 }
@@ -13,20 +13,35 @@
 }
 
 .note-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 10px;
+    margin: 0 auto;
 }
 
-.note-form input[type="text"] {
-    width: 280px;
+
+.note-form input[type="text"],
+.note-form #id_reminder {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid #4a87f7;
-    padding: 9px;
-    font-size: 16px;
-    margin-bottom: 20px;
 }
+
+.note-form textarea {
+    width: 100%;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #4a87f7;
+    resize: none;
+}
+
+.note-form #id_category {
+    border: 1px solid #4a87f7;
+    width: 20%;
+    padding: 8px 10px;
+}
+
 
 .note-form input[type="submit"],
 .note-dell input[type="submit"] {
@@ -40,36 +55,12 @@
 
 .note-form input[type="submit"] {
     padding: 10px;
-    margin: auto;
+    margin: 0 auto;
+    display: block;
 
 }
 
 .note-dell input[type="submit"] {
     float: right;
 }
-
-.notes {
-    display: flex;
-    align-items: center;
-
-}
-
-.note_list {
-    width: 320px;
-    list-style-type: '✎  ';
-    white-space: normal;
-    word-wrap: break-word;
-    flex: 3;
-    font-size: 18px;
-    font-weight: bold;
-    border: 1px solid #4a87f7;
-}
-
-.notes a {
-    text-decoration: none;
-    color: white;
-    background-color: #4a87f7;
-    cursor: pointer;
-}
-
 
