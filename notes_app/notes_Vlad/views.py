@@ -6,12 +6,7 @@ from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView
-
-
-class NotesListView(ListView):
-    model = NoteModel
-    paginate_by = 3
+from django.core.paginator import Paginator
 
 
 class DeleteAllView(View):
@@ -61,5 +56,10 @@ class NotesVlad(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['notes'] = NoteModel.objects.all()
+        notes = NoteModel.objects.all()
+        paginator = Paginator(notes, 3)
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context['notes'] = page_obj
+        context['page_obj'] = page_obj
         return context

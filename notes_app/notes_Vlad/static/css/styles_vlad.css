@@ -17,7 +17,6 @@
     margin: 0 auto;
 }
 
-
 .note-form input[type="text"],
 .note-form #id_reminder {
     width: 100%;
@@ -63,4 +62,51 @@
 .note-dell input[type="submit"] {
     float: right;
 }
+
+.note-footer {
+    border-top: 1px solid #4a87f7;
+}
+
+.time {
+    font-size: 14px;
+    color: #95bfff;
+    padding-left: 30px
+}
+
+
+button a {
+    text-decoration: none;
+}
+
+.note_content {
+    border-bottom: 1px solid #4a87f7;
+    font-size: 25px;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    width: 95%;
+}
+.note_text {
+    font-size: 20px;
+}
+
+.main-button,
+.update-button,
+.delete-button {
+    float: right;
+    outline: none;
+    border: 0;
+    background: transparent;
+    font-size: 15px;
+}
+
+.main-button {
+    font-size: 30px;
+    color: #4a87f7;
+}
+
+
+
+
+
+
 

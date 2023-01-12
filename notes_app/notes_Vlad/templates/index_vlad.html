@@ -19,23 +19,58 @@
         {{ form.as_p }}
         <input type="submit" value="Отправить">
     </form>
-    <div class="notes">
-        {% if notes %}
-        <ul>
-            {% for note in notes %}
-            <p class='time'>{{ note.time_add }}</p>
-            <li class='note_list'>{{ note.content }}</li>
-            <a href="{% url 'update_item' note.id %}" class='button'>Изменить</a>
-            <a href="{% url 'delete_item' note.id %}"
-               onclick="return confirm('Вы уверены, что хотите удалить этот элемент?');" class='button'>Удалить</a>
+    <div class="note-footer">
+        <div class="notes">
+            {% if notes %}
+            <ul>
+                {% for note in notes %}
+                <p class='time'>{{ note.time_add }}</p>
+                <li class='note_content'>{{ note.content }}
+                    <button id="main-button-{{ note.id }}" class='main-button'>&equiv;</button>
+                    <button class='update-button' id="button-1-{{ note.id }}" style="display: none;">
+                        <a href="{% url 'update_item' note.id %}" class='button'>Изменить</a>
+                    </button>
+                    <button class='delete-button' id="button-2-{{ note.id }}" style="display: none;">
+                        <a href="{% url 'delete_item' note.id %}"
+                           onclick="return confirm('Вы уверены, что хотите удалить этот элемент?');"
+                           class='button'>Удалить</a>
+                    </button>
 
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p class="no_notes">Заметок нет.</p>
-        {% endif %}
+                    <script>
+                        document.getElementById("main-button-{{ note.id }}").addEventListener("click", function () {
+                            document.getElementById("main-button-{{ note.id }}").style.display = "none";
+                            document.getElementById("button-1-{{ note.id }}").style.display = "block";
+                            document.getElementById("button-2-{{ note.id }}").style.display = "block";
+                        });
+                    </script>
 
+                    <p class="note_text">{{ note.text }}</p>
+                </li>
+
+
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="no_notes">Заметок нет.</p>
+            {% endif %}
+        </div>
+        <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">&#11160</a>
+            {% endif %}
+
+            <span class="current">
+                страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">&#11162</a>
+            {% endif %}
+        </span>
+        </div>
     </div>
-</div>
+
+
 </body>
 </html>
