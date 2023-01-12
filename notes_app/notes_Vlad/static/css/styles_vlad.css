@@ -35,7 +35,7 @@
 
 .note-form textarea {
     width: 100%;
-    height: 50px;
+    height: 80px;
     padding: 12px 20px;
     box-sizing: border-box;
     resize: none;
@@ -136,7 +136,6 @@ button a {
 .pagination {
     text-align: center;
     font-size: 20px;
-
 }
 
 .page {

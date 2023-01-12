@@ -34,7 +34,7 @@
             {% if notes %}
             <ul>
                 {% for note in notes %}
-                <p class='time'>{{ note.time_add|date:'d-m-Y H:m' }}</p>
+                <p class='time'>{{ note.time_add|date:'d-m-Y H:i' }}</p>
                 <p class='reminder'> {% if note.reminder %} Напоминание: {{ note.reminder|date:'d-m-Y H:m' }}
                     {%endif%}</p>
                 <li class='note_content'>{{ note.content }}

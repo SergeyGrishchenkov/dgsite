@@ -7,6 +7,7 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.views import View
 from django.core.paginator import Paginator
+from sweetify.views import SweetifySuccessMixin
 
 
 class DeleteAllView(View):
@@ -15,6 +16,7 @@ class DeleteAllView(View):
 
     def post(self, request):
         NoteModel.objects.all().delete()
+        messages.success(request, 'Все заметки были успешно удалены!')
         return HttpResponseRedirect(reverse('NotesVlad'))
 
 
@@ -34,6 +36,7 @@ class UpdateItemView(View):
             messages.success(request, 'Заметка успешно сохранена!')
             return HttpResponseRedirect(reverse('NotesVlad'))
         else:
+            messages.error(request, 'Произошла ошибка при обновлении заметки. Пожалуйста, попробуйте еще раз.')
             return self.get(request, item_id)
 
 
@@ -41,6 +44,7 @@ class DeleteItemView(View):
     def get(self, request, item_id):
         item = NoteModel.objects.get(pk=item_id)
         item.delete()
+        messages.success(request, 'Заметка была успешно удалена!')
         return HttpResponseRedirect(reverse('NotesVlad'))
 
 
@@ -65,5 +69,5 @@ class NotesVlad(FormView):
         page_obj = paginator.get_page(page_number)
         context['notes'] = page_obj
         context['page_obj'] = page_obj
-        context['categories'] = Category.objects.all()  # To pass all categories to the template
+        context['categories'] = Category.objects.all()
         return context
