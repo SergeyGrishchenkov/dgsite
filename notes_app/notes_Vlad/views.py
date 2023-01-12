@@ -1,7 +1,7 @@
 from django.views.generic.edit import FormView
 from .forms import FormNote
 from django.http import HttpResponseRedirect
-from .models import NoteModel
+from .models import NoteModel, Category
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
@@ -57,9 +57,13 @@ class NotesVlad(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         notes = NoteModel.objects.all().order_by('-id')
+        category = self.request.GET.get('category')
+        if category:
+            notes = notes.filter(category__title=category)
         paginator = Paginator(notes, 3)
         page_number = self.request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         context['notes'] = page_obj
         context['page_obj'] = page_obj
+        context['categories'] = Category.objects.all()  # To pass all categories to the template
         return context

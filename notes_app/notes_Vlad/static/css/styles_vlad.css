@@ -48,10 +48,10 @@
 
 .note-form input[type="submit"],
 .note-dell input[type="submit"] {
-    background-color: #4a87f7;
-    color: white;
+    background-color: white;
+    color: #4a87f7;
     padding: 4px;
-    border: none;
+    border: 1px solid #4a87f7;
     cursor: pointer;
     font-size: 16px;
 }
@@ -64,6 +64,7 @@
 
 .note-dell input[type="submit"] {
     float: right;
+    margin-right: 5px;
 }
 
 .note-footer {
@@ -84,7 +85,7 @@ button a {
     border-bottom: 1px solid #4a87f7;
     font-size: 25px;
     word-wrap: normal;
-    overflow-wrap: normal;
+    overflow-wrap: break-word;
     width: 95%;
     font-weight: bold;
 }
@@ -95,6 +96,7 @@ button a {
     margin-left: 20px;
     width: 90%;
     font-weight: normal;
+    overflow-wrap: break-word;
 }
 
 .main-button,
@@ -127,7 +129,8 @@ button a {
 
 .no_notes {
     text-align: center;
-    font-size: 20px;
+    margin-top: 50px;
+    font-size: 25px;
 }
 
 .pagination {
@@ -139,5 +142,13 @@ button a {
 .page {
     display: inline-block;
     text-decoration: none;
+    color: #4a87f7;
+}
+
+.select_filter {
+    border: 1px solid #4a87f7;
+    float: right;
+    margin: 5px;
+    font-size: 15px;
     color: #4a87f7;
 }

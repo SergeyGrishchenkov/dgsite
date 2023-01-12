@@ -20,6 +20,16 @@
         <input type="submit" value="Отправить">
     </form>
     <div class="note-footer">
+        <form method="get">
+            <select name="category" class="select_filter" onchange="this.form.submit()">
+                <option value="">Все</option>
+                {% for category in categories %}
+                <option value="{{ category.title }}" {% if category.title == request.GET.category %}selected{% endif %}>
+                    {{ category.title }}
+                </option>
+                {% endfor %}
+            </select>
+        </form>
         <div class="notes">
             {% if notes %}
             <ul>
@@ -70,7 +80,6 @@
             {% endif %}
         </span>
         </div>
-
 
 
     </div>
