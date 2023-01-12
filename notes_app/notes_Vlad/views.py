@@ -56,7 +56,7 @@ class NotesVlad(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        notes = NoteModel.objects.all()
+        notes = NoteModel.objects.all().order_by('-id')
         paginator = Paginator(notes, 3)
         page_number = self.request.GET.get('page')
         page_obj = paginator.get_page(page_number)

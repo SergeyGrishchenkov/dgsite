@@ -24,7 +24,9 @@
             {% if notes %}
             <ul>
                 {% for note in notes %}
-                <p class='time'>{{ note.time_add }}</p>
+                <p class='time'>{{ note.time_add|date:'d-m-Y H:m' }}</p>
+                <p class='reminder'> {% if note.reminder %} Напоминание: {{ note.reminder|date:'d-m-Y H:m' }}
+                    {%endif%}</p>
                 <li class='note_content'>{{ note.content }}
                     <button id="main-button-{{ note.id }}" class='main-button'>&equiv;</button>
                     <button class='update-button' id="button-1-{{ note.id }}" style="display: none;">
@@ -46,18 +48,17 @@
 
                     <p class="note_text">{{ note.text }}</p>
                 </li>
-
-
                 {% endfor %}
             </ul>
             {% else %}
             <p class="no_notes">Заметок нет.</p>
             {% endif %}
         </div>
+
         <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}">&#11160</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page">&#11160</a>
             {% endif %}
 
             <span class="current">
@@ -65,12 +66,14 @@
             </span>
 
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">&#11162</a>
+                <a href="?page={{ page_obj.next_page_number }}" class="page">&#11162</a>
             {% endif %}
         </span>
         </div>
+
+
+
     </div>
-
-
+</div>
 </body>
 </html>
