@@ -7,7 +7,10 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.views import View
 from django.core.paginator import Paginator
-from sweetify.views import SweetifySuccessMixin
+
+
+# def get_messages(request):
+#     return getattr(request, "_messages", [])
 
 
 class DeleteAllView(View):

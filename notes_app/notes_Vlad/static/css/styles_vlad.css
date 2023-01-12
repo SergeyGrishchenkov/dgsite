@@ -77,8 +77,11 @@
     padding-left: 30px;
 }
 
-button a {
+a :active,
+a :hover,
+a {
     text-decoration: none;
+    color: #4a87f7;
 }
 
 .note_content {
