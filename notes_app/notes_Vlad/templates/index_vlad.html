@@ -20,6 +20,10 @@
         <input type="submit" value="Отправить">
     </form>
     <div class="note-footer">
+        <form method="GET" action="{% url 'search_notes' %}" class="search">
+            <input type="text" name="q" placeholder="Поиск заметок..." class="holder-search">
+            <input type="submit" value="Поиск" class="input-search">
+        </form>
         <form method="get">
             <select name="category" class="select_filter" onchange="this.form.submit()">
                 <option value="">Все</option>

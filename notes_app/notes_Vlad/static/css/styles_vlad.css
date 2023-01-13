@@ -104,7 +104,8 @@ a {
 
 .main-button,
 .update-button,
-.delete-button {
+.delete-button,
+.input-search{
     float: right;
     outline: none;
     border: 0;
@@ -120,7 +121,8 @@ a {
 }
 
 .update-button,
-.delete-button {
+.delete-button,
+.input-search {
     border: 1px solid #4a87f7;
 }
 
@@ -147,10 +149,37 @@ a {
     color: #4a87f7;
 }
 
-.select_filter {
-    border: 1px solid #4a87f7;
+.select_filter,
+.search {
     float: right;
     margin: 5px;
     font-size: 15px;
+}
+
+.select_filter {
+    border: 1px solid #4a87f7;
+    color: #4a87f7;
+}
+
+
+.holder-search {
+    border: 1px solid #4a87f7;
+    font-size: 15px;
+
+}
+.input-search {
+    color: #4a87f7;
+}
+
+::placeholder {
+    color: #4a87f7;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #4a87f7;
+}
+
+::-ms-input-placeholder {
     color: #4a87f7;
 }

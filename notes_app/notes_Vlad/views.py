@@ -9,8 +9,13 @@ from django.views import View
 from django.core.paginator import Paginator
 
 
-# def get_messages(request):
-#     return getattr(request, "_messages", [])
+class SearchNotesView(View):
+    template_name = 'index_vlad.html'
+
+    def get(self, request):
+        query = request.GET.get('q')
+        notes = NoteModel.objects.filter(content__icontains=query)
+        return render(request, self.template_name, {'notes': notes})
 
 
 class DeleteAllView(View):
