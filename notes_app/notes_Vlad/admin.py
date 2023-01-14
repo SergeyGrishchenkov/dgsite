@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import NoteModel
+from .models import NoteModel, Category
 
 
-# Register your models here.
-
+@admin.register(Category)
 @admin.register(NoteModel)
 class NoteFormAdmin(admin.ModelAdmin):
     pass

@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -13,7 +13,7 @@ class NoteModel(models.Model):
     content = models.CharField(max_length=60, verbose_name='Заметка')
     text = models.TextField(null=True, blank=True, verbose_name='Текст заметки')
     reminder = models.DateTimeField(null=True, blank=True, verbose_name='Напоминание')
-    time_add = models.DateTimeField(default=datetime.now, verbose_name='Время добавления заметки')
+    time_add = models.DateTimeField(default=timezone.now, verbose_name='Время добавления заметки')
 
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name='Категория')
 
