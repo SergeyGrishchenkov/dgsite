@@ -1,3 +1,4 @@
+from django.utils.decorators import method_decorator
 from django.views.generic.edit import FormView
 from .forms import FormNote
 from django.http import HttpResponseRedirect
@@ -7,6 +8,7 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import render
 from django.views import View
 from django.core.paginator import Paginator
+from django.views.decorators.http import require_POST
 
 
 class SearchNotesView(View):
@@ -18,10 +20,8 @@ class SearchNotesView(View):
         return render(request, self.template_name, {'notes': notes})
 
 
+@method_decorator(require_POST, name='dispatch')
 class DeleteAllView(View):
-    def get(self, request):
-        pass
-
     def post(self, request):
         NoteModel.objects.all().delete()
         messages.success(request, 'Все заметки были успешно удалены!')

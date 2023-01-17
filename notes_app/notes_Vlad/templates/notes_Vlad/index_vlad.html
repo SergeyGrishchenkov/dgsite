@@ -20,7 +20,7 @@
                     <form action="{% url 'delete_all' %}" method="post" class="note-dell">
                         {% csrf_token %}
                         <input type="hidden" name="confirm" value="yes">
-                        <button type="submit" class="btn btn-outline-primary btn-sm">Удалить все</button>
+                        <button type="submit" class="btn btn-outline-primary btn-sm" id="1btn">Удалить все</button>
                     </form>
                 </div>
             </div>

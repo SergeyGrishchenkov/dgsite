@@ -2,7 +2,8 @@ from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase, Client, RequestFactory
 from django.urls import reverse
 from .models import NoteModel, Category
-from .views import SearchNotesView, NotesVlad
+from .views import SearchNotesView, NotesVlad, DeleteItemView
+from django.contrib import messages
 
 
 class NotesVladTest(TestCase):
@@ -52,3 +53,51 @@ class SearchNotesViewTest(TestCase):
         response = view(request)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'test content')
+
+
+class DeleteItemViewTest(TestCase):
+    '''Тест для DeleteItemView.'''
+
+    def setUp(self):
+        self.client = Client()
+        self.category = Category.objects.create(title='Test category')
+        self.item = NoteModel.objects.create(content='Test note', category=self.category)
+
+    def test_get_deletes_item(self):
+        response = self.client.get(reverse('delete_item', args=[self.item.pk]))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(NoteModel.objects.filter(pk=self.item.pk).exists())
+
+
+class NoteModelTest(TestCase):
+    '''Здесь проверяется, что метод __str__ классов NoteModel возвращает ожидаемый результат'''
+
+    def test_string_representation(self):
+        note = NoteModel(content='Test note')
+        self.assertEqual(str(note), 'Test note')
+
+
+class CategoryTest(TestCase):
+    '''Здесь проверяется, что метод __str__ классов Category возвращает ожидаемый результат'''
+
+    def test_string_representation(self):
+        category = Category(title='Test category')
+        self.assertEqual(str(category), 'Test category')
+
+
+class DeleteAllViewTest(TestCase):
+    '''Тест для DeleteAllView.'''
+    def setUp(self):
+        self.client = Client()
+        self.category = Category.objects.create(title='Test category')
+        self.item1 = NoteModel.objects.create(content='Test note 1', category=self.category)
+        self.item2 = NoteModel.objects.create(content='Test note 2', category=self.category)
+
+    def test_post_deletes_all_items(self):
+        response = self.client.post(reverse('delete_all'))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(NoteModel.objects.exists())
+        self.assertEqual(response.url, reverse('NotesVlad'))
+        messages_list = list(messages.get_messages(response.wsgi_request))
+        self.assertEqual(len(messages_list), 1)
+        self.assertEqual(str(messages_list[0]), 'Все заметки были успешно удалены!')
