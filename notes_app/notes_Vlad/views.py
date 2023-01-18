@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.views import View
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_POST
+from django.shortcuts import redirect
 
 
 class SearchNotesView(View):
@@ -71,10 +72,15 @@ class NotesVlad(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        notes = NoteModel.objects.all().order_by('-id')
         category = self.request.GET.get('category')
         if category and category != "Все":
-            notes = notes.filter(category__title=category)
+            if Category.objects.filter(title=category).exists():
+                notes = NoteModel.objects.filter(category__title=category).order_by('-id')
+            else:
+                messages.error(self.request, 'Категория не найдена')
+                return redirect(self.request.path)
+        else:
+            notes = NoteModel.objects.all().order_by('-id')
         paginator = Paginator(notes, 3)
         page_number = self.request.GET.get('page')
         if not page_number:
